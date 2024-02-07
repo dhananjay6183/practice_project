@@ -1,0 +1,22 @@
+.radio-btns{
+ display: flex;
+ margin: 10px;   
+}
+.btns-control{
+    height: 25px;
+    margin-left: 5px;
+}
+
+/* error messages*/
+.error{
+    color: red;
+}
+#errorPlacement {
+    display: block;
+    margin-top: 5px; 
+    color: red; 
+}
+.active{
+    color: red;
+    background-color: blue;
+}
