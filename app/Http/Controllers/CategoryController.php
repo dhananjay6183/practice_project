@@ -42,7 +42,7 @@ class CategoryController extends Controller
                 })
                 ->rawColumns(['category', 'priority', 'description', 'date', 'action'])
                 ->make(true);
-        }
+        } 
         return view('admin.category.index');
     }
 
