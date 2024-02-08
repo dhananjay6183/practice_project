@@ -24,8 +24,8 @@
 						<p>Category</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="" class="nav-link">
+				<li class="nav-item {{ Request::routeIs('admin.subcategory.index')  ? 'active' : '' }}">
+					<a href="{{ route('admin.subcategory.index') }}" class="nav-link">
 						<i class="nav-icon fas fa-file-alt"></i>
 						<p>Sub Category</p>
 					</a>

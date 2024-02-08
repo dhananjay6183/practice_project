@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use DataTables;
+// use DataTables;
+use Yajra\DataTables\DataTables;
 
 class CategoryController extends Controller
 {
@@ -63,7 +64,7 @@ class CategoryController extends Controller
         Category::create($request->all());
 
         return redirect()->route('admin.category.index')
-            ->with('success', 'Product created successfully.');
+            ->with('success', 'Category created successfully.');
     }
     public function edit($id)
     {
