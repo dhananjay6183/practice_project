@@ -9,7 +9,7 @@
             <div class="col-md-6 mb-5">
                 <label for="SubCategory" class="form-label">Sub-Category</label>
                 <input type="text" class="form-control" name="subcategory" id="subcategory_id" autocomplete="off">
-                @if ($errors->has('category'))
+                @if ($errors->has('subcategory'))
                 <span class="error">{{ $errors->first('subcategory') }}</span>
                 @endif
             </div>

@@ -3,6 +3,16 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 
 <div class="container">
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('delete'))
+    <div class="alert alert-danger">
+        {{ session('delete') }}
+    </div>
+@endif
 <a class="btn btn-success m-2 float-right" href="{{ route('admin.subcategory.create') }}" id="createNewProduct"> Create sub-category</a>
     <table class="table table-bordered data-table" id="subcategory_tbl">
         <thead>

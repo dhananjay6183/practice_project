@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
@@ -35,4 +36,9 @@ Route::group(['prefix' =>'admin/subcategory'], function() {
     Route::get('/edit/{id}', [SubCategoryController::class, 'edit'])->name('admin.subcategory.edit');
     Route::post('/update/{id}', [SubCategoryController::class, 'update'])->name('admin.subcategory.update');
     Route::delete('/destroy/{id}', [SubCategoryController::class, 'destroy'])->name('admin.subcategory.destroy');
+});
+Route::group(['prefix' => 'admin/brand'], function() {
+    Route::get('/index', [BrandController::class, 'index'])->name('admin.brand.index');
+    Route::get('/create', [BrandController::class, 'create'])->name('admin.brand.create');
+    Route::get('/store', [BrandController::class, 'store'])->name('admin.brand.store');
 });

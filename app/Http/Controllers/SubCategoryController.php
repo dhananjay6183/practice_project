@@ -57,7 +57,7 @@ class SubCategoryController extends Controller
         ]);
         SubCategory::create($request->all());
         return redirect()->route('admin.subcategory.index')
-            ->with('succes', 'Category created successfully.');
+            ->with('success', 'Category created successfully.');
     }
     public function edit($id)
     {
@@ -82,6 +82,6 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::findOrFail($id);
         $subCategory->delete();
         return redirect()->route('admin.subcategory.index')
-            ->with('success', 'SubCategory deleted successfully');
+            ->with('delete', 'SubCategory deleted successfully');
     }
 }
