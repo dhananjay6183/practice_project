@@ -2,7 +2,7 @@
 @section('content')
  <div class="container d-flex justify-content-center">
     <div class="main-container p-5">
-        <form action="" method="POST" id="brand_form_id">
+        <form action="{{ route('admin.brand.store') }}" method="POST" id="brand_form_id">
             @csrf
             <div class="col-md-6 mb-5">
                 <label for="BrandName" class="form-label">Brand Name</label>
