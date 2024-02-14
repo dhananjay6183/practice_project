@@ -33,8 +33,10 @@ class CategoryController extends Controller
                 })
                 ->addColumn('action', function ($row) {
                     $editUrl = route("admin.category.edit", $row->id);
+                    $viewUrl = route("admin.category.show", $row->id);
                     $deleteUrl = route("admin.category.destroy", $row->id);
-                    return '<a href="' . $editUrl . '" class="btn btn-primary">Edit</a>
+                    return '<a href="' . $editUrl . '" class="btn btn-info">Edit</a>
+                    <a href="' . $viewUrl . '" class="btn btn-primary">view</a>
             <form action="' . $deleteUrl . '" method="POST" style="display: inline;" onsubmit="return confirm(\'Are you sure you want to delete this?\');">
                 ' . csrf_field() . '
                 ' . method_field("DELETE") . '
@@ -66,6 +68,12 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.index')
             ->with('success', 'Category created successfully.');
     }
+
+    public function show(Request $request,  $id) {
+        $category = Category::findOrFail($id);
+        return view('admin.category.view', compact('category'));
+    }
+
     public function edit($id)
     {
         $category = Category::findOrFail($id);

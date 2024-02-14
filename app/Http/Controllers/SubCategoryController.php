@@ -30,8 +30,10 @@ class SubCategoryController extends Controller
                 })
                 ->addColumn('action', function ($row) {
                     $editUrl = route("admin.subcategory.edit", $row->id);
+                    $viewUrl = route("admin.subcategory.show", $row->id);
                     $deleteUrl = route("admin.subcategory.destroy", $row->id);
                     return '<a href="' . $editUrl . '" class="btn btn-primary">Edit</a>
+                    <a href="' . $viewUrl . '" class="btn btn-info">view</a>
         <form action="' . $deleteUrl . '" method="POST" style="display: inline;" onsubmit="return confirm(\'Are you sure you want to delete this?\');">
             ' . csrf_field() . '
             ' . method_field("DELETE") . '
@@ -59,6 +61,12 @@ class SubCategoryController extends Controller
         return redirect()->route('admin.subcategory.index')
             ->with('success', 'Category created successfully.');
     }
+
+    public function show(Request $request,  $id) {
+        $subcategory = SubCategory::findOrFail($id);
+        return view('admin.subCategory.view', compact('subcategory'));
+    }
+
     public function edit($id)
     {
         $subCategory = SubCategory::findOrFail($id);

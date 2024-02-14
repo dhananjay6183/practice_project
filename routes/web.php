@@ -25,6 +25,7 @@ Route::group(['prefix'=>'admin/category'], function(){
     Route::get('/index', [CategoryController::class, 'index'])->name('admin.category.index');
     Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
     Route::post('/store', [CategoryController::class, 'store'])->name('admin.category.store');
+    Route::get('/show/{id}', [CategoryController::class, 'show'])->name('admin.category.show');
     Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
     Route::post('/update/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
     Route::delete('/destroy/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
@@ -33,6 +34,7 @@ Route::group(['prefix' =>'admin/subcategory'], function() {
     Route::get('/index', [SubCategoryController::class, 'index'])->name('admin.subcategory.index');
     Route::get('/create', [SubCategoryController::class, 'create'])->name('admin.subcategory.create');
     Route::post('/store', [SubCategoryController::class, 'store'])->name('admin.subcategory.store');
+    Route::get('/show/{id}', [SubCategoryController::class, 'show'])->name('admin.subcategory.show');
     Route::get('/edit/{id}', [SubCategoryController::class, 'edit'])->name('admin.subcategory.edit');
     Route::post('/update/{id}', [SubCategoryController::class, 'update'])->name('admin.subcategory.update');
     Route::delete('/destroy/{id}', [SubCategoryController::class, 'destroy'])->name('admin.subcategory.destroy');
@@ -41,6 +43,7 @@ Route::group(['prefix' => 'admin/brand'], function() {
     Route::get('/index', [BrandController::class, 'index'])->name('admin.brand.index');
     Route::get('/create', [BrandController::class, 'create'])->name('admin.brand.create');
     Route::post('/store', [BrandController::class, 'store'])->name('admin.brand.store');
+    Route::get('/show/{id}', [BrandController::class, 'show'])->name('admin.brand.show');
     Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('admin.brand.edit');
     Route::post('/update/{id}', [BrandController::class, 'update'])->name('admin.brand.update');
     Route::delete('/delete/{id}', [BrandController::class, 'destroy'])->name('admin.brand.delete');

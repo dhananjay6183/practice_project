@@ -26,8 +26,10 @@ class BrandController extends Controller
             })
             ->addColumn('action', function ($row) {
                 $editUrl = route("admin.brand.edit", $row->id);
+                $viewUrl = route("admin.brand.show", $row->id);
                 $deleteUrl = route("admin.brand.delete", $row->id);
                 return '<a href="' . $editUrl . '" class="btn btn-primary">Edit</a>
+                <a href="' . $viewUrl . '" class="btn btn-info">view</a>
                 <form action="' . $deleteUrl . '" method="POST" style="display: inline;" onsubmit="return confirm(\'Are you sure you want to delete this?\');">
                     ' . csrf_field() . '
                     ' . method_field("DELETE") . '
@@ -53,6 +55,12 @@ class BrandController extends Controller
 
         return redirect()->route('admin.brand.index')->with('success', 'brand created successfully');
     }
+    
+    public function show(Request $request,  $id) {
+        $brand = Brand::findOrFail($id);
+        return view('admin.brands.view', compact('brand'));
+    }
+
     public function edit(Request $request, $id) {
         $brand = Brand::findOrFail($id);
         return view('admin.brands.edit', compact('brand'));
