@@ -38,8 +38,8 @@
 						<p>Brands</p>
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="{{ route('admin.category.index') }}" class="nav-link">
+				<li class="nav-item {{ Request::routeIs('admin.brand.index')  ? 'active' : '' }}">
+					<a href="{{ route('admin.product.index') }}" class="nav-link">
 						<i class="nav-icon fas fa-tag"></i>
 						<p>Products</p>
 					</a>

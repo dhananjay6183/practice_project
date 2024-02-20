@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
 
 /*
@@ -47,4 +48,13 @@ Route::group(['prefix' => 'admin/brand'], function() {
     Route::get('/edit/{id}', [BrandController::class, 'edit'])->name('admin.brand.edit');
     Route::post('/update/{id}', [BrandController::class, 'update'])->name('admin.brand.update');
     Route::delete('/delete/{id}', [BrandController::class, 'destroy'])->name('admin.brand.delete');
+});
+Route::group(['prefix' => 'admin/product'], function() {
+    Route::get('/index', [ProductController::class, 'index'])->name('admin.product.index');
+    Route::get('/create', [ProductController::class, 'create'])->name('admin.product.create');
+    Route::post('/store', [ProductController::class, 'store'])->name('admin.product.store');
+    Route::get('/show/{id}', [ProductController::class, 'show'])->name('admin.product.show');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
+    Route::post('/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
+    Route::delete('/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
 });
