@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SubCategoryController;
+use App\Http\Controllers\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,13 @@ Route::group(['prefix' => 'admin/product'], function() {
     Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('admin.product.edit');
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
     Route::delete('/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
+});
+Route::group(['prefix' => 'admin/usermanagement'], function() {
+    Route::get('/index', [UserManagementController::class, 'index'])->name('admin.user.index');
+    Route::get('/create', [UserManagementController::class, 'create'])->name('admin.user.create');
+    Route::post('/store', [UserManagementController::class, 'store'])->name('admin.user.store');
+    Route::get('/show/{id}', [UserManagementController::class, 'show'])->name('admin.user.show');
+    Route::get('/edit/{id}', [UserManagementController::class, 'edit'])->name('admin.user.edit');
+    Route::post('/update/{id}', [UserManagementController::class, 'update'])->name('admin.user.update');
+    Route::delete('/delete/{id}', [UserManagementController::class, 'destroy'])->name('admin.user.delete');
 });

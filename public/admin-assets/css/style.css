@@ -26,3 +26,9 @@
     border-radius: 5px;
     margin: 20px 0px; 
 }
+.user-btn-container{
+    margin: 10px;
+}
+.user-btn{
+   margin-left: 450px !important;
+}
